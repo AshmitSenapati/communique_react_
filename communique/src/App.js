@@ -1,3 +1,4 @@
+//Main code flow
 import { useEffect } from 'react';
 import { Routes, Route, useNavigate, useLocation, Navigate } from 'react-router-dom';
 
