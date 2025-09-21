@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  /* Add this line. Use your app's actual gray color code. */
+  background-color: #282c34; 
+  
+  /* ... keep the rest of your body styles ... */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-bottom: 100px;
+}
+
+.App-header {
+  /* You can now remove the background-color from here if it exists */
+  min-height: 100vh;
+  /* ... keep the rest of your App-header styles ... */
+}
