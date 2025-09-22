@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Recorder from './components/Recorder';
 import AudioFileOpener from './components/AudioFileOpener';
-import { transcribeAudio, translateText, textToSpeech } from './api/api';
+import { transcribeAudio, translateAndGetSpeech } from './api/api'
 
 // A list of languages for the dropdown
 const languages = [
@@ -44,8 +44,7 @@ function TranslatorPage() { // Renamed from App to TranslatorPage
   };
 
   const handleTranslate = async () => {
-    // ... your translation logic ...
-    if (!transcript) return; // Don't do anything if there's no text
+    if (!transcript) return;
 
     setIsLoading(true);
     setError('');
@@ -53,20 +52,16 @@ function TranslatorPage() { // Renamed from App to TranslatorPage
     setAudioUrl('');
 
     try {
-      // Step 2: Translate Text using the stored transcript and selected language
-      const translated = await translateText(transcript, targetLanguage);
-      setTranslatedText(translated);
-
-      // Step 3: Convert Translated Text to Speech
-      const finalAudioUrl = await textToSpeech(translated, targetLanguage);
-      setAudioUrl(finalAudioUrl);
+        const result = await translateAndGetSpeech(transcript, targetLanguage);
+        setTranslatedText(result.translatedText);
+        setAudioUrl(result.audioUrl);
     } catch (err) {
-      setError('Error during translation. Please try again.');
-      console.error(err);
+        setError('Error during translation. Please try again.');
+        console.error(err);
     } finally {
-      setIsLoading(false);
+        setIsLoading(false);
     }
-  };
+};
 
   return (
     <div className="App">
