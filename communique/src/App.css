@@ -24,6 +24,24 @@
   color: white;
 }
 
+.record-button.recording {
+  background-color: #e63946; /* A red color for recording */
+  animation: blink 1s infinite;
+}
+
+.timer {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.6;
+  }
+}
+
 .App-link {
   color: #61dafb;
 }

@@ -5,7 +5,7 @@ function AboutPage() {
   return (
     <div className="App-header">
       <h1>CommUnique 🎧</h1>
-      <p>Made by the community, for the community</p>
+      <p>Made by the community , for the community</p>
       <Link to="/translator">Let's continue</Link>
     </div>
   );
